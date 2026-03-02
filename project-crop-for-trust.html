@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crop for Trust | 상세 프로젝트 - 황경하</title>
+    <title>Crop for Trust | 황경하 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,7 +14,7 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
         body {
             font-family: 'Inter', 'Noto Sans KR', sans-serif;
@@ -23,147 +23,526 @@
         .dark {
             color-scheme: dark;
         }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
+
+        .img-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .dark .img-placeholder {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .experiment-card {
+            border-left: 3px solid #003774;
+            padding-left: 1.25rem;
+        }
+
+        .dark .experiment-card {
+            border-left-color: #60a5fa;
+        }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 leading-relaxed transition-colors">
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 leading-relaxed transition-colors">
+
+    <!-- Nav -->
     <nav
-        class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 text-navy dark:text-blue-400 font-bold">
-                <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home
+        class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center gap-2 text-navy dark:text-blue-400 font-semibold text-sm hover:opacity-70 transition-opacity">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> 포트폴리오로 돌아가기
             </a>
             <button onclick="toggleDarkMode()"
                 class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
             </button>
         </div>
     </nav>
 
-    <header class="py-20 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
-        <div class="max-w-4xl mx-auto px-6">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-bold mb-6">
-                RESEARCH & RELIABLE AI
+    <!-- Hero -->
+    <header class="bg-navy dark:bg-slate-900 text-white py-16 border-b border-navy/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-5">
+                <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">Research Paper · Reliable AI ·
+                    Data-Centric</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-navy dark:text-blue-400 mb-8">Crop for Trust:
-                Reliability-Aware Image Classification</h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-                딥러닝 모델이 핵심 객체가 아닌 배경의 가상 상관관계(Spurious Correlation)에 의존하는 'Shortcut Learning' 문제를 해결하고자 합니다. 이를
-                위해 Gen AI와 YOLO를 결합하여 데이터 의존성을 원천적으로 개선하는 강건한 객체 분리 및 정제 프레임워크를 개발했습니다.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Crop for Trust</h1>
+            <p class="text-xl text-blue-100 font-light mb-3">Reliability-Aware Image Classification via Shortcut
+                Mitigation</p>
+            <p class="text-sm text-blue-200 mb-8 max-w-2xl">차량 유리 손상 이미지의 이진 분류 자동화 과정에서 발생하는 신뢰성 문제를 Data-Centric 접근으로
+                해결한 연구입니다.</p>
+
+            <!-- Quick Impact Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-xl overflow-hidden max-w-2xl">
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">+4.69%</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">Accuracy Gain</div>
+                </div>
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">97.46%</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">YOLO-Crop Acc.</div>
+                </div>
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">KSC 2024</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">학술대회 게재</div>
+                </div>
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">ESWA</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">SCI저널 투고</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="py-20 max-w-4xl mx-auto px-6 space-y-24">
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-20">
+
+        <!-- 01. Problem -->
         <section>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <i data-lucide="alert-circle" class="text-red-500"></i> Problem Definition
-            </h2>
-            <div class="space-y-4 text-slate-700 dark:text-slate-300">
-                <p>현실의 딥러닝 모델들은 종종 학습 데이터셋에 내재된 '지배적인 배경 노이즈'를 타겟 레이블과 잘못 연관 지어 학습하는 오류를 범합니다. 예를 들어, 특정 클래스의 이미지가 특정
-                    배경과 함께 빈번히 등장할 경우, 모델은 객체의 본질적인 특성이 아닌 배경 텍스처를 판단 근거로 삼게 되며 이는 모델의 본질적인 신뢰성을 심각하게
-                    훼손합니다.</p>
-                <ul class="list-disc ml-6 space-y-2">
-                    <li>Out-of-Distribution 환경에서의 극심한 일반화 성능 저하 발생.</li>
-                    <li>의사결정 과정의 불투명성으로 인한 XAI 관점에서의 신뢰성 및 해석력 결여.</li>
-                    <li>도메인 변이에 취약하여 실제 산업 현장 적용 시 이식성 한계 노출.</li>
-                </ul>
-                <img src="Crop for Trust 프로젝트 이미지/문제 정의 - 데이터셋 예시.png"
-                    class="w-full rounded-2xl shadow-lg mt-8 border border-slate-200 dark:border-slate-800"
-                    alt="Problem Example">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">01</span>
+                <div>
+                    <div class="section-label">Problem Definition</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">모델이 손상이 아닌 '마킹'을 보고 있다</h2>
+                </div>
+            </div>
+
+            <p class="text-slate-600 dark:text-slate-300 mb-6">차량 유리 손상 이미지를 분류하는 AI를 개발하면서, 모델이 실제 손상 부위가 아닌 <strong
+                    class="text-navy dark:text-blue-400">다른 시각적 요소에 의존하여 판단</strong>하는 두 가지 구조적 문제를 발견했습니다.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 flex-shrink-0"></i>
+                        <h3 class="font-bold text-navy dark:text-white">문제 1: Data Distribution (Overfitting)</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">손상 식별을 위해 이미지에 표기한
+                        <strong>Marking</strong>이 클래스 간 불균형하게 존재합니다.
+                    </p>
+                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1">
+                        <li class="flex items-start gap-2"><span class="text-slate-400 flex-shrink-0">·</span>Repair 이미지
+                            중 Marking 포함 비율: <strong>9.7%</strong></li>
+                        <li class="flex items-start gap-2"><span class="text-slate-400 flex-shrink-0">·</span>Replace
+                            이미지 중 Marking 포함 비율: <strong>54.5%</strong></li>
+                        <li class="flex items-start gap-2"><span class="text-slate-400 flex-shrink-0">·</span>모델이
+                            "Marking 있으면 Replace"라는 Shortcut을 학습할 위험 ↑</li>
+                    </ul>
+                </div>
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 flex-shrink-0"></i>
+                        <h3 class="font-bold text-navy dark:text-white">문제 2: Attention Misalignment</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">손상 주변에 <strong>무관한 배경</strong>(사람의 손, 차량
+                        부품 등)이 다수 존재합니다.</p>
+                    <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-1">
+                        <li class="flex items-start gap-2"><span class="text-slate-400 flex-shrink-0">·</span>배경이 모델의
+                            Attention을 손상 부위로부터 분산</li>
+                        <li class="flex items-start gap-2"><span
+                                class="text-slate-400 flex-shrink-0">·</span>XAI(Grad-CAM) 분석 시 비관련 영역에 집중하는 현상 확인</li>
+                        <li class="flex items-start gap-2"><span class="text-slate-400 flex-shrink-0">·</span>모델의 의사결정
+                            결과를 신뢰하기 어려운 상태</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 이미지 영역 -->
+            <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                    <img src="Crop for Trust 프로젝트 이미지/fig1.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Marking Example">
+                    <p class="text-xs text-slate-400 mt-2 text-center">데이터 예시. (Top) Repair, (Bottom) Replace</p>
+                </div>
+                <div>
+                    <img src="Crop for Trust 프로젝트 이미지/fig2.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Dataset Example">
+                    <p class="text-xs text-slate-400 mt-2 text-center">Attention 결과. (Left) Input, (Right) Grad-CAM</p>
+                </div>
+            </div>
+
+            <div
+                class="mt-6 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                <p class="text-sm text-slate-600 dark:text-slate-300"><strong
+                        class="text-navy dark:text-blue-400">결론적으로</strong>, 두 문제의 공통점은 모델이 손상 부위에 집중하지 못하게 만들며, 이는 곧 모델
+                    결과를 신뢰할 수 없도록 한다는 것입니다.</p>
             </div>
         </section>
 
+        <hr class="border-slate-100 dark:border-slate-800">
+
+        <!-- 02. Method -->
         <section>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <i data-lucide="component" class="text-blue-500"></i> Methodology & Architecture
-            </h2>
-            <div class="space-y-8 text-slate-700 dark:text-slate-300">
-                <p>본 연구는 모델 아키텍처의 변경 없이 데이터 자체의 품질을 향상시키는 Data-Centric AI 패러다임을 채택하여, 배경 노이즈를 원천적으로 차단하는
-                    파이프라인을 설계했습니다.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div
-                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <h3 class="font-bold text-navy dark:text-blue-400 mb-3 text-lg">1. GAC (Generative Annotation
-                            Cleaning)</h3>
-                        <p class="text-sm">Gemini 2.5 Flash 모델의 API를 활용하여, Zero-Shot 방식으로 데이터셋 내에 포함된
-                            시각적 편향 (Visual Marking)을 정밀하게 제거합니다. 이를 통해 모델이 객체 외부의 통계적 특성에 의존하는 것을 방지합니다.</p>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <h3 class="font-bold text-navy dark:text-blue-400 mb-3 text-lg">2. ROI Focusing (YOLO-Crop)</h3>
-                        <p class="text-sm">YOLO v8 모델을 활용하여 이미지 내 객체의 위치를 탐지하고, 해당 영역을 제외한 배경을 제거합니다. 이를 통해 모델이 배경으로
-                            Attention이 분산되는 현상을 물리적으로 차단하고 객체 고유의 특징에만 집중하도록 강제합니다.</p>
-                    </div>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">02</span>
+                <div>
+                    <div class="section-label">Methodology</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">두 가지 Pre-hoc 기법의 순차 적용</h2>
                 </div>
+            </div>
 
-                <img src="Crop for Trust 프로젝트 이미지/method - 전체 파이프라인 이미지.jpg"
-                    class="w-full rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800" alt="Pipeline">
+            <p class="text-slate-600 dark:text-slate-300 mb-8">모델 아키텍처가 아닌 <strong
+                    class="text-navy dark:text-blue-400">데이터 자체를 정제</strong>하는 Data-Centric 접근법을 채택했습니다. 두 가지 독립 파이프라인을
+                순차 적용하여 최종 분류 모델에 입력합니다.</p>
 
-                <div class="p-6 bg-slate-100 dark:bg-slate-900 rounded-xl">
-                    <h4 class="font-bold mb-2">Technical Keywords:</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold">Gen AI
-                            (Gemini API)</span>
-                        <span class="px-3 py-1 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold">YOLOv2 ~
-                            YOLOv8</span>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-3">
+                        Pipeline A — Marking 제거</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">GAC (Generative Annotation Cleaning)
+                    </h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4"><strong>Gemini 2.5 Flash</strong> 멀티모달
+                        모델에 이미지를 입력하고, instruction-guided 프롬프트로 배경은 유지하면서 손상 주변의 Marking만 선택적으로 제거합니다.</p>
+                    <div class="flex flex-wrap gap-1.5">
                         <span
-                            class="px-3 py-1 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold">Grad-CAM</span>
-                        <span class="px-3 py-1 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold">Data-Centric
-                            AI</span>
-                        <span class="px-3 py-1 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold">Shortcut
-                            Learning</span>
+                            class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-300">Gemini
+                            API</span>
+                        <span
+                            class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-300">Zero-Shot
+                            Prompting</span>
+                        <span
+                            class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-300">Generative
+                            Inpainting</span>
+                    </div>
+                </div>
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-3">
+                        Pipeline B — 배경 제거</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">YOLO-Crop (ROI Focusing)</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4"><strong>YOLO (v2/v4/v5/v8)</strong>로 손상
+                        부위를 탐지하고, 해당 영역만 크롭합니다. 이를 통해 Marking과 배경을 동시에 물리적으로 제거하여, 모델이 손상 특징에만 집중하도록 강제합니다.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span
+                            class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-300">YOLOv2/v4/v5/v8</span>
+                        <span
+                            class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-300">Object
+                            Detection</span>
+                        <span
+                            class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-600 dark:text-slate-300">ROI
+                            Crop</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 전체 파이프라인 이미지 -->
+            <div>
+                <img src="Crop for Trust 프로젝트 이미지/fig3.png"
+                    class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
+                    alt="Full Pipeline">
+                <p class="text-xs text-slate-400 mt-2 text-center">전체 파이프라인: Input → GAC (Marking 제거) → YOLO-Crop (ROI
+                    추출) → CNN Classifier</p>
+            </div>
+
+            <!-- Data Flow 이미지 -->
+            <div class="mt-6">
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-3 font-medium">파이프라인 단계별 데이터 변환 예시</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div>
+                        <img src="Crop for Trust 프로젝트 이미지/fig4.jpg"
+                            class="w-full rounded-lg border border-slate-200 dark:border-slate-700 aspect-square object-cover"
+                            alt="Input">
+                        <p class="text-xs text-slate-400 mt-1 text-center">① Original Input</p>
+                    </div>
+                    <div>
+                        <img src="Crop for Trust 프로젝트 이미지/fig5.jpg"
+                            class="w-full rounded-lg border border-slate-200 dark:border-slate-700 aspect-square object-cover"
+                            alt="GAC">
+                        <p class="text-xs text-slate-400 mt-1 text-center">② GAC 적용 후</p>
+                    </div>
+                    <div>
+                        <img src="Crop for Trust 프로젝트 이미지/fig6.png"
+                            class="w-full rounded-lg border border-slate-200 dark:border-slate-700 aspect-square object-cover"
+                            alt="Crop">
+                        <p class="text-xs text-slate-400 mt-1 text-center">③ YOLO-Crop 적용 후</p>
+                    </div>
+                    <div>
+                        <img src="Crop for Trust 프로젝트 이미지/fig7.png"
+                            class="w-full rounded-lg border border-slate-200 dark:border-slate-700 aspect-square object-cover"
+                            alt="Hybrid">
+                        <p class="text-xs text-slate-400 mt-1 text-center">④ Hybrid (GAC + Crop)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <i data-lucide="trending-up" class="text-green-500"></i> Results & Impact
-            </h2>
-            <div class="space-y-6 text-slate-700 dark:text-slate-300">
-                <p>모델의 의사결정 과정을 시각화하는 Grad-CAM 분석 결과, <strong>기존 베이스라인 모델은 배경의 무의미한 텍스처에 강한 Attention을 기울이는 한계</strong>를
-                    보였습니다. 반면,
-                    'Crop for Trust' 파이프라인이 적용된 모델은 <strong>추론의 근거가 핵심 객체의 형태와 특징으로 정확히 이동하였음을 입증</strong>하여, 산업 현장에서
-                    요구되는 높은 해석 가능성과 신뢰성을 확보했습니다.
-                </p>
-                <img src="Crop for Trust 프로젝트 이미지/results - grad-cam 이미지.png"
-                    class="w-full rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800"
-                    alt="Grad-CAM Result">
+        <hr class="border-slate-100 dark:border-slate-800">
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-                    <div class="text-center p-6 bg-navy text-white rounded-2xl">
-                        <div class="text-4xl font-bold mb-2">+4.69%</div>
-                        <div class="text-xs opacity-80 uppercase tracking-widest font-bold">Accuracy Gain</div>
+        <!-- 03. Experiments -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">03</span>
+                <div>
+                    <div class="section-label">Experiments</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">3가지 검증 실험 설계</h2>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Exp 1 -->
+                <div class="experiment-card">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+                        Experiment 1</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">GAC 성능 검증 — Self-Supervised Protocol
+                    </h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">GAC의 성능을 정밀 측정하기 위한 자체 프로토콜을 설계했습니다.
+                        마킹이 없는 이미지를 GT로 설정하고, 강제로 마킹을 추가한 뒤 GAC로 복원한 결과와 다양한 Anchor(JPEG 압축, Blur, 다른 손상과 Mix,
+                        OOD)를 비교합니다. 그 결과, JPEG, Blur와 집단과 유사한 군집을 형성하며, GAC의 채택 근거를 마련했습니다.</p>
+                    <p class="text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">평가 지표</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Feature Map
+                            Distance</span>
+                        <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Edge L1</span>
+                        <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">SSIM</span>
+                        <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">PSNR</span>
                     </div>
-                    <div class="text-center p-6 bg-slate-100 dark:bg-slate-900 rounded-2xl">
-                        <div class="text-3xl font-bold mb-2 text-navy dark:text-blue-400 uppercase">KSC 2024</div>
-                        <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Paper Presentation</div>
+                    <!-- GAC 검증 이미지 -->
+                    <div>
+                        <img src="Crop for Trust 프로젝트 이미지/fig8.png"
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700"
+                            alt="GAC Validation">
+                        <p class="text-xs text-slate-400 mt-2 text-center">GAC 성능 검증: Scatter Plot (Edge L1 vs. Feature
+                            Map Distance)</p>
                     </div>
-                    <div class="text-center p-6 bg-slate-100 dark:bg-slate-900 rounded-2xl">
-                        <div class="text-3xl font-bold mb-2 text-navy dark:text-blue-400">ESWA Entry</div>
-                        <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">IF: 7.5 Journal Submit
+                </div>
+
+                <!-- Exp 2 -->
+                <div class="experiment-card">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+                        Experiment 2</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">YOLO-Crop 필요성 검증 — 비교 실험</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">배경 제거의 다양한 방법(GAC / Blur / Black-out /
+                        YOLO-Crop)을 동일한 CNN에 학습시켜 분류 성능을 비교하여, YOLO-Crop의 채택 근거를 마련했습니다.</p>
+                    <div class="overflow-x-auto mt-6 mb-2">
+                        <table class="w-full text-sm text-left border-collapse whitespace-nowrap">
+                            <thead>
+                                <tr class="border-y-2 border-slate-400 dark:border-slate-500 text-navy dark:text-white">
+                                    <th class="py-3 px-4 font-bold">Dataset</th>
+                                    <th class="py-3 px-4 text-center font-bold">Strategy Characteristics</th>
+                                    <th class="py-3 px-4 text-right font-bold">Accuracy (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="divide-y divide-slate-200 dark:divide-slate-700/50 border-b-2 border-slate-400 dark:border-slate-500">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                    <td class="py-3 px-4 font-serif italic font-medium">D<sub>GAC</sub></td>
+                                    <td class="py-3 px-4 text-center text-slate-600 dark:text-slate-300">Markings
+                                        Removed, Background Kept</td>
+                                    <td class="py-3 px-4 text-right text-slate-600 dark:text-slate-300">86.74 &plusmn;
+                                        0.010</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                    <td class="py-3 px-4 font-serif italic font-medium">D<sub>blur</sub></td>
+                                    <td class="py-3 px-4 text-center text-slate-600 dark:text-slate-300">Background
+                                        Blurred (Full FOV)</td>
+                                    <td class="py-3 px-4 text-right text-slate-600 dark:text-slate-300">89.38 &plusmn;
+                                        0.012</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                    <td class="py-3 px-4 font-serif italic font-medium">D<sub>black</sub></td>
+                                    <td class="py-3 px-4 text-center text-slate-600 dark:text-slate-300">Background
+                                        Blacked-Out (Full FOV)</td>
+                                    <td class="py-3 px-4 text-right text-slate-600 dark:text-slate-300">89.07 &plusmn;
+                                        0.015</td>
+                                </tr>
+                                <tr class="bg-blue-50/50 dark:bg-blue-900/10 font-bold text-navy dark:text-blue-400">
+                                    <td class="py-3 px-4 font-serif italic">D<sub>crop</sub></td>
+                                    <td class="py-3 px-4 text-center">Background Removed + Geometric Focusing</td>
+                                    <td class="py-3 px-4 text-right">97.46 &plusmn; 0.005</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div
+                        class="bg-navy/5 dark:bg-blue-900/20 border border-navy/20 dark:border-blue-700/30 rounded-xl p-4">
+                        <p class="text-sm font-bold text-navy dark:text-blue-300 mb-2">핵심 결과</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">GAC / Blur / Black-out 기법은 정확도 90% 미만에
+                            머물렀으나, <strong class="text-navy dark:text-blue-400">YOLO-Crop은 97.46%</strong>로 타 방법론 대비 월등히
+                            뛰어난 성능을 보였습니다.</p>
+                    </div>
+                </div>
+
+                <!-- Exp 3 -->
+                <div class="experiment-card">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+                        Experiment 3</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">Attention Alignment 검증 — Grad-CAM 시각화
+                    </h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Original vs. YOLO-Crop 데이터셋으로 학습된 모델의
+                        Grad-CAM을 시각화하여, YOLO-Crop이 Attention을 실제 손상 부위로 정렬시킨다는 것을 정성적으로 입증했습니다. 추가로 GAC·Hybrid 데이터셋에서도
+                        동일한 결과를 확인하여, Attention Alignment는 Marking 유무와 독립적임을 검증했습니다.</p>
+                    <!-- Grad-CAM 이미지 -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <img src="Crop for Trust 프로젝트 이미지/fig9.png"
+                                class="w-full rounded-xl border border-slate-200 dark:border-slate-700"
+                                alt="Grad-CAM Before">
+                            <p class="text-xs text-slate-400 mt-2 text-center">Original 데이터에 대한 Attention Alignment</p>
+                        </div>
+                        <div>
+                            <img src="Crop for Trust 프로젝트 이미지/fig10.png"
+                                class="w-full rounded-xl border border-slate-200 dark:border-slate-700"
+                                alt="Grad-CAM After">
+                            <p class="text-xs text-slate-400 mt-2 text-center">GAC 데이터에 대한 Attention Alignment</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <hr class="border-slate-100 dark:border-slate-800">
+
+        <!-- 04. Results -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">04</span>
+                <div>
+                    <div class="section-label">Results & Impact</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">신뢰할 수 있는 분류기 달성</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="p-5 bg-navy text-white rounded-xl">
+                    <div class="text-3xl font-bold mb-1">+4.69%</div>
+                    <div class="text-sm text-blue-200">Hybrid vs. GAC 기반 Fair Baseline 비교 시 정확도 향상</div>
+                </div>
+                <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <div class="text-xl font-bold text-navy dark:text-blue-400 mb-1">2024 KSC</div>
+                    <div class="text-sm text-slate-500">한국소프트웨어종합학술대회 논문 게재 및 발표</div>
+                </div>
+                <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <div class="text-xl font-bold text-navy dark:text-blue-400 mb-1">ESWA 저널 투고</div>
+                    <div class="text-sm text-slate-500">Expert Systems With Applications (IF 7.5) SCI급 저널</div>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <img src="Crop for Trust 프로젝트 이미지/fig11.png"
+                    class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
+                    alt="Accuracy Comparison">
+                <p class="text-xs text-slate-400 mt-2 text-center">Original / YOLO-Crop / GAC / Hybrid 데이터셋별 분류 정확도 비교
+                </p>
+            </div>
+
+            <!-- MLOps 및 배포 -->
+            <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                <h3 class="font-bold text-navy dark:text-white mb-4">MLOps 구현 및 배포</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-sm text-slate-600 dark:text-slate-300">
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="github" class="w-4 h-4 flex-shrink-0 mt-0.5 text-navy dark:text-blue-400"></i>
+                        <div>
+                            <div class="font-medium text-slate-800 dark:text-white">클린코드 기반 전체 공개</div>
+                            <div class="text-xs text-slate-400">모든 코드 GitHub 공개</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="monitor" class="w-4 h-4 flex-shrink-0 mt-0.5 text-navy dark:text-blue-400"></i>
+                        <div>
+                            <div class="font-medium text-slate-800 dark:text-white">Streamlit 웹 데모</div>
+                            <div class="text-xs text-slate-400">Hugging Face Spaces 배포</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="trophy" class="w-4 h-4 flex-shrink-0 mt-0.5 text-navy dark:text-blue-400"></i>
+                        <div>
+                            <div class="font-medium text-slate-800 dark:text-white">교내 공모전 2회 수상</div>
+                            <div class="text-xs text-slate-400">AI/데이터 분석 공모전</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 데모 GIF -->
+            <div class="mt-6">
+                <img src="Crop for Trust 프로젝트 이미지/Crop for Trust 시연.gif"
+                    class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Demo">
+                <p class="text-xs text-slate-400 mt-2 text-center">Streamlit 웹 데모 시연 (Hugging Face Spaces 배포)</p>
+            </div>
+        </section>
+
+        <hr class="border-slate-100 dark:border-slate-800">
+
+        <!-- Tech Stack -->
+        <section>
+            <div class="section-label mb-4">Tech Stack Used</div>
+            <div class="flex flex-wrap gap-2">
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Python</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">PyTorch</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Linux</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Git</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Hugging
+                    Face</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">YOLOv2/v4/v5/v8</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Gemini
+                    API</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">VGG16
+                    / ResNet152 / MobileNet</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Grad-CAM</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Streamlit</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Hugging
+                    Face Spaces</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Data-Centric
+                    AI</span>
+            </div>
+        </section>
     </main>
 
-    <footer class="py-20 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h3 class="text-xl font-bold mb-8">감사합니다. 다른 프로젝트도 확인해 보세요.</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="project-retinaface.html"
-                    class="px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:shadow-md transition-all">RetinaFace
-                    Optimization</a>
+    <!-- Footer Navigation -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <p class="text-xs text-slate-400 uppercase tracking-wide mb-6">다른 프로젝트</p>
+            <div class="grid md:grid-cols-2 gap-4">
                 <a href="project-hwaseong.html"
-                    class="px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:shadow-md transition-all">Spatial
-                    Data Study</a>
+                    class="group flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-navy dark:hover:border-blue-500 transition-colors">
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">Data Analysis</div>
+                        <div class="font-semibold text-navy dark:text-white">화성시 화재 취약 전략</div>
+                    </div>
+                    <i data-lucide="arrow-right"
+                        class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="project-retinaface.html"
+                    class="group flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-navy dark:hover:border-blue-500 transition-colors">
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">Model Optimization</div>
+                        <div class="font-semibold text-navy dark:text-white">RetinaFace Optimization</div>
+                    </div>
+                    <i data-lucide="arrow-right"
+                        class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
         </div>
     </footer>

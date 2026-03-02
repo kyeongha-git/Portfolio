@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DS-Vision Leadership | 상세 프로젝트 - 황경하</title>
+    <title>DS-Vision Leadership | 황경하 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,7 +14,7 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
         body {
             font-family: 'Inter', 'Noto Sans KR', sans-serif;
@@ -23,125 +23,218 @@
         .dark {
             color-scheme: dark;
         }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 leading-relaxed transition-colors">
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 leading-relaxed transition-colors">
+
+    <!-- Nav -->
     <nav
-        class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 text-navy dark:text-blue-400 font-bold">
-                <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home
+        class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center gap-2 text-navy dark:text-blue-400 font-semibold text-sm hover:opacity-70 transition-opacity">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> 포트폴리오로 돌아가기
             </a>
             <button onclick="toggleDarkMode()"
                 class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
             </button>
         </div>
     </nav>
 
-    <header class="py-20 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
-        <div class="max-w-4xl mx-auto px-6">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-bold mb-6">
-                LEADERSHIP / CLUB MANAGEMENT
+    <!-- Hero -->
+    <header class="bg-navy dark:bg-slate-900 text-white py-16 border-b border-navy/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-6">
+                <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">Academic Leadership · Community
+                    Building</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-navy dark:text-blue-400 mb-8">DS-Vision: Data Science Elite
-                Club Leadership</h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-                단순한 동아리 활동을 넘어, 입문자부터 심화 전공자까지 함께 성장할 수 있는 학술 커리큘럼을 설계하고 다수의 공모전 입상을 이끌어낸 학습 공동체 리더십의 기록입니다.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">DS-Vision Club Leadership</h1>
+            <p class="text-xl text-blue-100 font-light mb-8">데이터과학 학술 동아리의 창립 및 운영 — 커리큘럼 설계, 멘토링, 공모전 성과 관리</p>
+
+            <!-- Quick Impact Stats -->
+            <div class="grid grid-cols-3 gap-px bg-white/10 rounded-xl overflow-hidden max-w-xl">
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">20+</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">Active Members</div>
+                </div>
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">최우수</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">교내 활동상</div>
+                </div>
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">2Track</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">커리큘럼 설계</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="py-20 max-w-4xl mx-auto px-6 space-y-24">
-        <!-- Vision -->
-        <section>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <i data-lucide="users" class="text-blue-500"></i> The Absence of Community
-            </h2>
-            <div class="space-y-4 text-slate-700 dark:text-slate-300">
-                <p>데이터과학부 내에서 이론 학습 외에 실질적인 프로젝트 경험을 공유하고 대외 활동을 조직적으로 준비할 수 있는 주도적인 학술 동아리의 부재를 해결하고자 했습니다.</p>
-                <ul class="list-disc ml-6 space-y-2">
-                    <li>신입 부원들의 높은 기술적 진입 장벽 해결 필요.</li>
-                    <li>지속 가능한 학습 문화(Peer-review) 정착.</li>
-                    <li>기업 연계 프로젝트 및 해커톤 기획을 통한 실전 역량 강화.</li>
-                </ul>
-                <img src="Leadership 프로젝트 이미지/VLM 스터디 활동 이미지 - 학습 로드맵 이미지.png"
-                    class="w-full rounded-2xl shadow-lg mt-8 border border-slate-200 dark:border-slate-800"
-                    alt="Roadmap">
-            </div>
-        </section>
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-20">
 
-        <!-- Activities -->
+        <!-- 01. Background -->
         <section>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <i data-lucide="book-open" class="text-blue-500"></i> Key Initiatives
-            </h2>
-            <div class="space-y-8 text-slate-700 dark:text-slate-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div
-                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <h3 class="font-bold text-navy dark:text-blue-400 mb-3 text-lg">Structured Curriculum</h3>
-                        <p class="text-sm">기초반(SQL, 통계)과 응용반(DL, MLOps)으로 이분화하여 체계적인 학습 로드맵을 제공하고 주간 세미나를 주도했습니다.</p>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <h3 class="font-bold text-navy dark:text-blue-400 mb-3 text-lg">Industry Collaboration</h3>
-                        <p class="text-sm">KT 디지털인재 장학생 선발 및 산학 프로젝트 참여를 독려하여 단순 학술을 넘어선 실무 중심의 활동을 지향했습니다.</p>
-                    </div>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">01</span>
+                <div>
+                    <div class="section-label">Background</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">학술 공동체의 부재를 직접 해결하다</h2>
                 </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="Leadership 프로젝트 이미지/VLM 스터디 활동 이미지 - ppt 이미지 2.png" class="rounded-xl shadow-md"
-                        alt="Study 1">
-                    <img src="Leadership 프로젝트 이미지/취업동아리 활동 이미지 - 정기 회의 이미지.png" class="rounded-xl shadow-md"
-                        alt="Meeting">
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4 text-slate-600 dark:text-slate-300">
+                    <p>데이터과학부 내에서 이론 학습 외에 실질적인 프로젝트 경험을 공유하고 대외 활동을 조직적으로 준비할 수 있는 <strong
+                            class="text-navy dark:text-blue-400">주도적인 학술 커뮤니티의 공백</strong>을 직접 해결하기로 했습니다.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start gap-2"><i data-lucide="target"
+                                class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0"></i><span>신입 부원들의 높은 기술적 진입 장벽
+                                해소</span></li>
+                        <li class="flex items-start gap-2"><i data-lucide="target"
+                                class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0"></i><span>지속 가능한 Peer-review 학습 문화
+                                정착</span></li>
+                        <li class="flex items-start gap-2"><i data-lucide="target"
+                                class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0"></i><span>기업 연계 프로젝트 및 공모전 참여를 통한 실전
+                                역량 강화</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="Leadership 프로젝트 이미지/VLM 스터디 활동 이미지 - 학습 로드맵 이미지.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm" alt="Roadmap">
+                    <p class="text-xs text-slate-400 mt-2 text-center">DS-Vision 학습 로드맵</p>
                 </div>
             </div>
         </section>
 
-        <!-- Results -->
+        <hr class="border-slate-100 dark:border-slate-800">
+
+        <!-- 02. Initiatives -->
         <section>
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                <i data-lucide="award" class="text-orange-500"></i> Impact & Recognition
-            </h2>
-            <div class="space-y-6 text-slate-700 dark:text-slate-300">
-                <p>20명 이상의 부원을 관리하며, 개별 부원들이 대외 공모전에서 다수 입상할 수 있도록 프로젝트 가이드 및 멘토링을 수행했습니다.</p>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">02</span>
+                <div>
+                    <div class="section-label">Key Initiatives</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">체계적인 커리큘럼과 실전 프로젝트</h2>
+                </div>
+            </div>
 
-                <img src="Leadership 프로젝트 이미지/소자부식 예측 연구 이미지 - 결과 분석 이미지.png"
-                    class="w-full rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800"
-                    alt="Result Analysis">
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+                        Curriculum</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">2-Track 학습 체계 설계</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">기초반(SQL, 통계, EDA)과 응용반(DL, MLOps, 논문 리뷰)으로
+                        이분화하여 수준별 맞춤 학습 로드맵을 제공하고 주간 세미나를 주도했습니다.</p>
+                </div>
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+                        Industry</div>
+                    <h3 class="font-bold text-lg text-navy dark:text-white mb-3">산학 연계 및 공모전 멘토링</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">KT 디지털인재 장학생 선발을 독려하고, 부원들의 공모전 프로젝트를 직접
+                        기획·가이드하여 다수의 수상 성과를 이끌었습니다.</p>
+                </div>
+            </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-                    <div class="text-center p-6 bg-navy text-white rounded-2xl shadow-lg">
-                        <div class="text-4xl font-bold mb-2">Grand Prize</div>
-                        <div class="text-xs opacity-80 uppercase tracking-widest font-bold">1st Place Distinction</div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="Leadership 프로젝트 이미지/VLM 스터디 활동 이미지 - ppt 이미지 2.png"
+                    class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Study Session">
+                <img src="Leadership 프로젝트 이미지/취업동아리 활동 이미지 - 정기 회의 이미지.png"
+                    class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Regular Meeting">
+            </div>
+            <p class="text-xs text-slate-400 mt-2 text-center">VLM 논문 스터디 세션 및 정기 회의 모습</p>
+        </section>
+
+        <hr class="border-slate-100 dark:border-slate-800">
+
+        <!-- 03. Impact -->
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">03</span>
+                <div>
+                    <div class="section-label">Impact</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">교내 최우수 동아리 선정 및 연구 성과</h2>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">20명 이상의 부원들이 각자의 공모전 프로젝트를 진행할 수 있도록 기술적 지도와 프로젝트
+                        구조화를 지원했습니다. 동아리 주도로 진행된 <strong class="text-navy dark:text-blue-400">소자부식 예측 연구</strong>가 대표적인
+                        성과입니다.</p>
+                    <img src="Leadership 프로젝트 이미지/소자부식 예측 연구 이미지 - 결과 분석 이미지.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Research Result">
+                    <p class="text-xs text-slate-400 mt-2 text-center">동아리 주도 소자부식 예측 연구 결과 분석</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="p-5 bg-navy text-white rounded-xl">
+                        <div class="text-3xl font-bold mb-1">교내 최우수상</div>
+                        <div class="text-sm text-blue-200">활동 우수 동아리 선정 (Grand Prize)</div>
                     </div>
-                    <div class="text-center p-6 bg-slate-100 dark:bg-slate-900 rounded-2xl">
-                        <div class="text-3xl font-bold mb-2 text-navy dark:text-blue-400">Individual MVP</div>
-                        <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Excellence Honor</div>
+                    <div
+                        class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div class="text-lg font-bold text-navy dark:text-blue-400 mb-1">IT 인재 장학생 다수 배출</div>
+                        <div class="text-sm text-slate-500">KT 디지털인재 장학생 등 부원 수혜 지원</div>
                     </div>
-                    <div class="text-center p-6 bg-slate-100 dark:bg-slate-900 rounded-2xl">
-                        <div class="text-3xl font-bold mb-2 text-navy dark:text-blue-400">20+ Members</div>
-                        <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Active Community</div>
+                    <div
+                        class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div class="text-lg font-bold text-navy dark:text-blue-400 mb-1">20명+ 커뮤니티 운영</div>
+                        <div class="text-sm text-slate-500">회장으로서 1년간 동아리 전체 운영 총괄</div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <hr class="border-slate-100 dark:border-slate-800">
+
+        <!-- What I Learned -->
+        <section>
+            <div class="section-label mb-4">What I Learned</div>
+            <p class="text-slate-600 dark:text-slate-300">기술적 역량 외에도, 다양한 수준의 구성원을 이끄는 과정에서 <strong
+                    class="text-navy dark:text-blue-400">목표를 구조화하고 개개인의 성장을 지원하는 리더십</strong>을 체득했습니다. 이 경험은 AI 연구 팀에서
+                협업 중심의 개발 문화를 만드는 데 큰 자산이 되고 있습니다.</p>
         </section>
     </main>
 
-    <footer class="py-20 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h3 class="text-xl font-bold mb-8">황경하의 다른 역량도 확인해 보세요.</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="index.html#projects"
-                    class="px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:shadow-md transition-all">Back
-                    to Projects</a>
-                <a href="index.html#awards"
-                    class="px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full font-bold hover:shadow-md transition-all">Awards
-                    & Honors</a>
+    <!-- Footer Navigation -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <p class="text-xs text-slate-400 uppercase tracking-wide mb-6">연구 프로젝트 보기</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <a href="project-crop-for-trust.html"
+                    class="group flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-navy dark:hover:border-blue-500 transition-colors">
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">Research Paper</div>
+                        <div class="font-semibold text-navy dark:text-white text-sm">Crop for Trust</div>
+                    </div>
+                    <i data-lucide="arrow-right"
+                        class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="project-retinaface.html"
+                    class="group flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-navy dark:hover:border-blue-500 transition-colors">
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">Model Optimization</div>
+                        <div class="font-semibold text-navy dark:text-white text-sm">RetinaFace</div>
+                    </div>
+                    <i data-lucide="arrow-right"
+                        class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="project-hwaseong.html"
+                    class="group flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-navy dark:hover:border-blue-500 transition-colors">
+                    <div>
+                        <div class="text-xs text-slate-400 mb-1">Data Analysis</div>
+                        <div class="font-semibold text-navy dark:text-white text-sm">화성시 화재 전략</div>
+                    </div>
+                    <i data-lucide="arrow-right"
+                        class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
         </div>
     </footer>
