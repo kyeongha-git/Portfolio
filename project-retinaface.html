@@ -31,6 +31,58 @@
             text-transform: uppercase;
             color: #94a3b8;
         }
+
+        .img-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .dark .img-placeholder {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .module-card {
+            border-left: 3px solid #003774;
+            padding-left: 1.25rem;
+        }
+
+        .dark .module-card {
+            border-left-color: #60a5fa;
+        }
+
+        /* 아키텍처 흐름도 */
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .arch-block {
+            padding: 0.5rem 0.875rem;
+            border-radius: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .arch-arrow {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
@@ -55,26 +107,32 @@
     <!-- Hero -->
     <header class="bg-navy dark:bg-slate-900 text-white py-16 border-b border-navy/20">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="mb-6">
-                <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">Model Optimization · Edge
-                    Device</span>
+            <div class="mb-5">
+                <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">Model Optimization · Face
+                    Detection · Efficient AI</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">RetinaFace Optimization</h1>
-            <p class="text-xl text-blue-100 font-light mb-8">경량 백본 적용 시 발생하는 성능 저하를 해결하기 위한 아키텍처 수준의 개선 연구</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">RetinaFace Architecture Optimization</h1>
+            <p class="text-xl text-blue-100 font-light mb-3">연산량 최소 증가로 Hard Case 탐지 성능을 극대화한 Face Detection Modelw</p>
+            <p class="text-sm text-blue-200 mb-8 max-w-2xl">MobileNet-v1 기반 RetinaFace에 WFPN, ECA-CBAM, SCM, Deformable
+                Convolution을 도입하여, FLOPs 증가 0.09G로 Hard mAP +2.7 AP를 달성한 캡스톤 디자인 프로젝트입니다.</p>
 
             <!-- Quick Impact Stats -->
-            <div class="grid grid-cols-3 gap-px bg-white/10 rounded-xl overflow-hidden max-w-xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-xl overflow-hidden max-w-2xl">
                 <div class="bg-white/5 p-4 text-center">
-                    <div class="text-2xl font-bold text-white">+2.7%</div>
-                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">Hard mAP</div>
+                    <div class="text-2xl font-bold text-white">+2.7 AP</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">Hard Case 성능 향상</div>
                 </div>
                 <div class="bg-white/5 p-4 text-center">
-                    <div class="text-2xl font-bold text-white">1st</div>
-                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">학과 최우수</div>
+                    <div class="text-2xl font-bold text-white">+0.09G</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">FLOPs 증가폭</div>
                 </div>
                 <div class="bg-white/5 p-4 text-center">
-                    <div class="text-2xl font-bold text-white">4</div>
-                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">Custom Layers</div>
+                    <div class="text-2xl font-bold text-white">캡스톤 1등</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">수업 내 최우수</div>
+                </div>
+                <div class="bg-white/5 p-4 text-center">
+                    <div class="text-2xl font-bold text-white">4개</div>
+                    <div class="text-xs text-blue-300 mt-1 uppercase tracking-wide">커스텀 모듈</div>
                 </div>
             </div>
         </div>
@@ -87,85 +145,269 @@
             <div class="flex items-center gap-4 mb-8">
                 <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">01</span>
                 <div>
-                    <div class="section-label">Problem</div>
-                    <h2 class="text-2xl font-bold text-navy dark:text-white">경량화의 딜레마: 속도 vs. 정확도</h2>
+                    <div class="section-label">Problem Definition</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">경량화 시 성능이 급감하는 RetinaFace의 한계</h2>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4 text-slate-600 dark:text-slate-300">
-                    <p>RetinaFace는 RetinaNet 기반의 얼굴 탐지 SOTA 모델입니다. 아키텍처 분석을 통해, <strong
-                            class="text-navy dark:text-blue-400">Detection Head에 연산 부담이 집중</strong>되며 경량 백본(MobileNet
-                        v1) 도입 시 성능이 약 <strong>13%</strong>나 급감하는 구조적 원인을 파악했습니다.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="x-circle"
-                                class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0"></i><span>Edge Device에서의 실시간 구동 제약 (낮은
-                                FPS)</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="x-circle"
-                                class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0"></i><span>Small Face에 대한 탐지 정확도 유지의
-                                기술적 한계</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="x-circle"
-                                class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0"></i><span>경량화 시 발생하는 급격한 성능 저하</span>
-                        </li>
-                    </ul>
+
+            <p class="text-slate-600 dark:text-slate-300 mb-6">RetinaFace는 고성능(ResNet-152 백본)과 경량화(MobileNet-v1 백본) 사이의
+                <strong class="text-navy dark:text-blue-400">극심한 성능 격차</strong> 문제가 있었습니다. 우리는 MobileNet-v1로도 고성능을 낼 수
+                있는 구조적 개선을 목표로 삼았습니다.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 flex-shrink-0"></i>
+                        <h3 class="font-bold text-navy dark:text-white">문제 1: 성능 격차</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">백본을 ResNet-152에서 MobileNet-v1으로 교체 시 AP가
+                        <strong>약 13 포인트 급감</strong>합니다. 경량화와 고성능을 동시에 달성할 수 없습니다.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">ResNet-152: 고성능</span>
+                        <span
+                            class="px-2 py-0.5 text-xs bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded">MobileNet-v1:
+                            −13 AP</span>
+                    </div>
+                </div>
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 flex-shrink-0"></i>
+                        <h3 class="font-bold text-navy dark:text-white">문제 2: 병목 구조 (Detection Head)</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">RetinaNet의 경량화 후속 논문 분석 결과, <strong>Detection
+                            Head 초기 부분에 FLOPs가 집중</strong>됨을 확인했습니다. 중간 레이어의 정보 전달 효율을 높이면 성능을 끌어올릴 수 있다고 판단했습니다.</p>
+                </div>
+            </div>
+
+            <!-- 문제 1, 2 대응 이미지 -->
+            <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                    <img src="RetinaFace 프로젝트 이미지/fig1_temp.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700"
+                        alt="Backbone Performance Gap">
+                    <p class="text-xs text-slate-400 mt-2 text-center">ResNet-152 vs. MobileNet-v1 성능 비교 (WiderFace
+                        Benchmark)</p>
                 </div>
                 <div>
-                    <img src="RetinaFace 프로젝트 이미지/문제 정의 - RetinaNet 메모리, Flops 과중 분석.png"
-                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
-                        alt="Bottleneck Analysis">
-                    <p class="text-xs text-slate-400 mt-2 text-center">RetinaNet Detection Head 연산 비중 분석</p>
+                    <img src="RetinaFace 프로젝트 이미지/fig2.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="FLOPs Analysis">
+                    <p class="text-xs text-slate-400 mt-2 text-center">레이어별 FLOPs/Memory 분포 분석 — Detection Head 에 집중</p>
                 </div>
             </div>
         </section>
 
         <hr class="border-slate-100 dark:border-slate-800">
 
-        <!-- 02. Approach -->
+        <!-- 02. Architecture -->
         <section>
             <div class="flex items-center gap-4 mb-8">
                 <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">02</span>
                 <div>
-                    <div class="section-label">Approach</div>
-                    <h2 class="text-2xl font-bold text-navy dark:text-white">4가지 아키텍처 개선 모듈 직접 설계 및 이식</h2>
-                </div>
-            </div>
-            <p class="text-slate-600 dark:text-slate-300 mb-8">관련 논문을 역추적하여 문제의 원인을 정의하고, 이를 해결하는 4개의 커스텀 레이어를 직접 설계하여
-                PyTorch 코드베이스에 이식했습니다.</p>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
-                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">Module
-                        1</div>
-                    <h3 class="font-bold text-lg text-navy dark:text-white mb-2">ECA-CBAM</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">중요 채널/공간 정보를 강조. CBAM의 MLP를 1D Conv(ECA)로 대체해
-                        연산 부담을 줄이면서 표현력을 유지합니다.</p>
-                </div>
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
-                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">Module
-                        2</div>
-                    <h3 class="font-bold text-lg text-navy dark:text-white mb-2">WFPN</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">FPN의 단순 sum 대신 학습 가능한 가중치 결합을 도입. 스케일별 중요도를
-                        학습하여 정보 손실을 줄입니다.</p>
-                </div>
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
-                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">Module
-                        3</div>
-                    <h3 class="font-bold text-lg text-navy dark:text-white mb-2">SCM (Shuffle Context Module)</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">채널 수를 줄여 연산을 억제한 뒤 채널 셔플로 컨텍스트를 혼합하여 효율적으로
-                        표현력을 강화합니다.</p>
-                </div>
-                <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-6">
-                    <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">Module
-                        4</div>
-                    <h3 class="font-bold text-lg text-navy dark:text-white mb-2">Deformable Convolution</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Offset 기반 sampling으로 소형·변형 얼굴에서도 안정적으로 특징을
-                        포착하여 탐지 성능을 보완합니다.</p>
+                    <div class="section-label">Proposed Architecture</div>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">4개의 커스텀 모듈로 재설계한 탐지 파이프라인</h2>
                 </div>
             </div>
 
-            <img src="RetinaFace 프로젝트 이미지/method - 개선 아키텍처.png"
-                class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
-                alt="Optimized Architecture">
-            <p class="text-xs text-slate-400 mt-2 text-center">개선된 전체 아키텍처 다이어그램</p>
+            <!-- 아키텍처 비교 흐름도 -->
+            <div class="space-y-4 mb-8">
+                <div>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">기존 구조</p>
+                    <div
+                        class="arch-flow p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <span
+                            class="arch-block bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">MobileNet
+                            v1</span>
+                        <span class="arch-arrow">→</span>
+                        <span
+                            class="arch-block bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">FPN</span>
+                        <span class="arch-arrow">→</span>
+                        <span
+                            class="arch-block bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">SSH</span>
+                        <span class="arch-arrow">→</span>
+                        <span
+                            class="arch-block bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Detection
+                            Head</span>
+                    </div>
+                </div>
+                <!-- 기존 아키텍처 이미지 -->
+                <div class="mb-8">
+                    <img src="RetinaFace 프로젝트 이미지/fig3.png"
+                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
+                        alt="Improved Architecture">
+                    <p class="text-xs text-slate-400 mt-2 text-center">기존 RetinaFace 아키텍처 전체 구조도</p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-blue-500 uppercase tracking-wide mb-2">개선 구조 (Ours)</p>
+                    <div
+                        class="arch-flow p-4 bg-navy/5 dark:bg-blue-900/10 rounded-xl border border-navy/20 dark:border-blue-700/30 overflow-x-auto">
+                        <span class="arch-block bg-navy text-white">MobileNet v1</span>
+                        <span class="arch-arrow">→</span>
+                        <span class="arch-block bg-blue-600 text-white">ECA-CBAM</span>
+                        <span class="arch-arrow">→</span>
+                        <span class="arch-block bg-blue-600 text-white">WFPN</span>
+                        <span class="arch-arrow">→</span>
+                        <span class="arch-block bg-blue-600 text-white">ECA-CBAM</span>
+                        <span class="arch-arrow">→</span>
+                        <span class="arch-block bg-blue-600 text-white">SCM</span>
+                        <span class="arch-arrow">→</span>
+                        <span class="arch-block bg-blue-600 text-white">ECA-CBAM</span>
+                        <span class="arch-arrow">→</span>
+                        <span class="arch-block bg-navy text-white">Detection Head</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">* 모든 Convolution을 Deformable Convolution으로 대체</p>
+                </div>
+            </div>
+
+            <!-- 개선 아키텍처 이미지 -->
+            <div class="mb-8">
+                <img src="RetinaFace 프로젝트 이미지/fig4.png"
+                    class="w-full rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
+                    alt="Improved Architecture">
+                <p class="text-xs text-slate-400 mt-2 text-center">제안하는 개선 아키텍처 전체 구조도</p>
+            </div>
+
+            <!-- 4개 모듈 상세 설명 -->
+            <h3 class="text-lg font-bold text-navy dark:text-white mb-6">핵심 개선 모듈 상세</h3>
+            <div class="space-y-8">
+
+                <!-- WFPN -->
+                <div class="module-card">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span
+                            class="px-2 py-0.5 text-xs font-bold bg-navy text-white rounded uppercase tracking-wide">Module
+                            01</span>
+                        <h4 class="font-bold text-lg text-navy dark:text-white">FPN (Feature Pyramid Network) → WFPN
+                            (Weighted Feature Pyramid
+                            Network)</h4>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">기존 FPN은 고수준(high-level) 특징을
+                        저수준(low-level) 특징으로 단순 <strong>합산(sum)</strong>하여 흘려줍니다. 이 과정에서 두 특징의 중요도가 동일하게 취급되어 정보 손실이
+                        발생합니다.</p>
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                        <p class="text-sm text-slate-600 dark:text-slate-300">WFPN은 두 특징 사이에 <strong
+                                class="text-navy dark:text-blue-400">학습 가능한 가중치(Learnable Parameter)</strong>를 도입하여, 상황에
+                            따라 고수준/저수준 정보의 기여도를 동적으로 조절합니다. 이를 통해 정보 손실을 줄이고 특징 피라미드의 표현력을 향상시킵니다.</p>
+                        <div class="mt-3 font-mono text-sm bg-white dark:bg-slate-800 rounded-lg p-3">
+                            <span class="text-slate-400">// FPN</span><br>
+                            <span class="text-slate-600 dark:text-slate-300">out = high_feat + low_feat</span><br><br>
+                            <span class="text-slate-400">// WFPN (Ours)</span><br>
+                            <span class="text-navy dark:text-blue-400">out = w₁ × high_feat + w₂ × low_feat</span> <span
+                                class="text-slate-400">// w₁, w₂ are learnable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span
+                            class="px-2 py-0.5 text-xs font-bold bg-navy text-white rounded uppercase tracking-wide">Module
+                            02</span>
+                        <h4 class="font-bold text-lg text-navy dark:text-white">ECA-CBAM (Efficient Channel Attention
+                            CBAM)</h4>
+                    </div>
+
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+                        중간 레이어 간 정보 흐름을 정제하기 위해 <strong>공간·채널 Attention 모듈</strong>을 FPN 전·후, SCM 후 총 3곳에 삽입했습니다.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div
+                            class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl text-sm text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-800">
+                            <div class="font-medium text-slate-800 dark:text-white mb-1 flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                                CBAM 채택 이유
+                            </div>
+                            공간 Attention + 채널 Attention을 동시 적용하고, Adaptive Kernel Size로 연산 효율이 높습니다.
+                        </div>
+                        <div
+                            class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl text-sm text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-800">
+                            <div class="font-medium text-slate-800 dark:text-white mb-1 flex items-center gap-2">
+                                <i data-lucide="settings-2" class="w-4 h-4 text-blue-500"></i>
+                                ECA 커스터마이징
+                            </div>
+                            Channel Attention의 MLP Layer를 <strong class="text-navy dark:text-blue-400">1D Convolution으로
+                                대체</strong>하여 연산 부담을 줄이면서 표현력을 유지합니다.
+                        </div>
+                    </div>
+
+                    <div class="w-full">
+                        <div
+                            class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 shadow-sm">
+                            <img src="RetinaFace 프로젝트 이미지/fig5.png"
+                                class="w-full h-auto max-h-[400px] object-contain mx-auto"
+                                alt="ECA-CBAM Module Structure">
+                        </div>
+                        <p class="text-xs text-slate-400 mt-3 text-center tracking-tight">
+                            <span class="font-semibold text-slate-500">[Figure 5]</span> ECA-CBAM 모듈 구조: 1D Conv를 활용한
+                            효율적인 Attention 메커니즘
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SCM -->
+                <div class="module-card">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span
+                            class="px-2 py-0.5 text-xs font-bold bg-navy text-white rounded uppercase tracking-wide">Module
+                            03</span>
+                        <h4 class="font-bold text-lg text-navy dark:text-white">SSH → SCM (Shuffle Channel Module)</h4>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">기존 SSH는 3×3, 5×5, 7×7 Convolution으로 다양한
+                        receptive field를 추출하지만, <strong>채널 수를 줄이는 구조가 없어 연산량이 상대적으로 큽니다.</strong></p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <thead>
+                                <tr class="border-y-2 border-slate-400 dark:border-slate-500 text-navy dark:text-white">
+                                    <th class="py-2 px-3 font-bold">항목</th>
+                                    <th class="py-2 px-3 font-bold text-center">기존 SSH</th>
+                                    <th class="py-2 px-3 font-bold text-center text-blue-600 dark:text-blue-400">SCM
+                                        (Ours)</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="divide-y divide-slate-200 dark:divide-slate-700/50 border-b-2 border-slate-400 dark:border-slate-500">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="py-2 px-3 font-medium">Receptive Fields</td>
+                                    <td class="py-2 px-3 text-center text-slate-600 dark:text-slate-300">3×3, 5×5, 7×7
+                                    </td>
+                                    <td class="py-2 px-3 text-center text-blue-600 dark:text-blue-400 font-medium">3×3,
+                                        5×5, 7×7, 9×9</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="py-2 px-3 font-medium">채널 수</td>
+                                    <td class="py-2 px-3 text-center text-slate-600 dark:text-slate-300">그대로 유지</td>
+                                    <td class="py-2 px-3 text-center text-blue-600 dark:text-blue-400 font-medium">축소
+                                        (연산 절감)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                    <td class="py-2 px-3 font-medium">결합 방식</td>
+                                    <td class="py-2 px-3 text-center text-slate-600 dark:text-slate-300">Concatenation
+                                    </td>
+                                    <td class="py-2 px-3 text-center text-blue-600 dark:text-blue-400 font-medium">
+                                        Channel Shuffle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">채널 Shuffle 과정을 통해 더 넓은 receptive field의 정보를 효율적으로 결합합니다.</p>
+                </div>
+
+                <!-- Deformable Conv -->
+                <div class="module-card">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span
+                            class="px-2 py-0.5 text-xs font-bold bg-navy text-white rounded uppercase tracking-wide">Module
+                            04</span>
+                        <h4 class="font-bold text-lg text-navy dark:text-white">Deformable Convolution (전체 적용)</h4>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">모든 일반 Convolution을 <strong>Deformable
+                            Convolution</strong>으로 대체했습니다. 표준 Conv는 격자형 고정 위치를 샘플링하지만, Deformable Conv는 <strong
+                            class="text-navy dark:text-blue-400">offset 기반 동적 샘플링</strong>으로 얼굴의 변형(포즈, 가림, 소형 얼굴)에
+                        robust하게 대응합니다.</p>
+                </div>
+            </div>
         </section>
 
         <hr class="border-slate-100 dark:border-slate-800">
@@ -176,29 +418,191 @@
                 <span class="text-4xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">03</span>
                 <div>
                     <div class="section-label">Results</div>
-                    <h2 class="text-2xl font-bold text-navy dark:text-white">Hard Case에서 입증된 성능 개선</h2>
+                    <h2 class="text-2xl font-bold text-navy dark:text-white">어려운 환경일수록 더 벌어지는 성능 격차</h2>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <img src="RetinaFace 프로젝트 이미지/results - RetinaFace 탐지 시각화.png"
-                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Detection Result">
-                    <p class="text-xs text-slate-400 mt-2 text-center">최적화 모델의 얼굴 탐지 시각화 결과</p>
+
+            <p class="text-slate-600 dark:text-slate-300 mb-6">WiderFace 데이터셋 기준으로 기존 MobileNet-v1 기반 RetinaFace 대비 성능을
+                측정했습니다. 특히 <strong class="text-navy dark:text-blue-400">탐지가 어려운 Hard case에서 격차가 더욱 크게 벌어집니다.</strong>
+            </p>
+
+            <!-- 성능 수치 -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <div class="text-2xl font-bold text-navy dark:text-blue-400 mb-1">+1.0 AP</div>
+                    <div class="text-sm text-slate-500">Easy Case</div>
                 </div>
-                <div class="space-y-4">
-                    <div class="p-5 bg-navy text-white rounded-xl">
-                        <div class="text-3xl font-bold mb-1">+2.7%</div>
-                        <div class="text-sm text-blue-200">Hard Case Average Precision 향상</div>
+                <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <div class="text-2xl font-bold text-navy dark:text-blue-400 mb-1">+1.7 AP</div>
+                    <div class="text-sm text-slate-500">Medium Case</div>
+                </div>
+                <div class="p-5 bg-navy text-white rounded-xl">
+                    <div class="text-2xl font-bold mb-1">+2.7 AP</div>
+                    <div class="text-sm text-blue-200">Hard Case — 소형·변형 얼굴</div>
+                </div>
+            </div>
+
+            <div
+                class="p-4 bg-navy/5 dark:bg-blue-900/20 border border-navy/20 dark:border-blue-700/30 rounded-xl mb-8">
+                <p class="text-sm font-bold text-navy dark:text-blue-300 mb-1">핵심 인사이트</p>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Easy → Medium → Hard로 갈수록 성능 향상폭(+1.0 → +1.7 →
+                    +2.7 AP)이 커지는 패턴은, 우리 구조가 <strong>작고 변형된 얼굴</strong>에 특히 효과적임을 보여줍니다. Deformable Conv와 더 넓은
+                    Receptive Field(10×10)가 주요 요인으로 분석됩니다.</p>
+            </div>
+
+            <div class="overflow-x-auto mb-8 shadow-sm rounded-lg border border-slate-200 dark:border-slate-700">
+                <table class="w-full text-sm border-collapse text-center whitespace-nowrap md:whitespace-normal">
+                    <thead class="bg-[#003774] dark:bg-slate-800 text-white">
+                        <tr>
+                            <th
+                                class="py-3 px-4 font-semibold border-b border-r border-[#003774] dark:border-slate-600 w-1/3">
+                                Method</th>
+                            <th
+                                class="py-3 px-4 font-semibold border-b border-r border-[#003774] dark:border-slate-600">
+                                Easy</th>
+                            <th
+                                class="py-3 px-4 font-semibold border-b border-r border-[#003774] dark:border-slate-600">
+                                Medium</th>
+                            <th
+                                class="py-3 px-4 font-semibold border-b border-r border-[#003774] dark:border-slate-600">
+                                Hard</th>
+                            <th
+                                class="py-3 px-4 font-semibold border-b border-r border-[#003774] dark:border-slate-600">
+                                Flops</th>
+                            <th class="py-3 px-4 font-semibold border-b border-[#003774] dark:border-slate-600">
+                                Parameter</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900">
+                        <tr
+                            class="bg-slate-50 dark:bg-slate-800/30 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800/60">
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700 font-medium">
+                                RetinaFace</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">90.7%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">88.1%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">73.4%</td>
+                            <td
+                                class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700 underline underline-offset-4">
+                                1.030G</td>
+                            <td class="py-4 px-4 border-b border-slate-200 dark:border-slate-700">426.608K</td>
+                        </tr>
+                        <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/60">
+                            <td
+                                class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700 font-medium text-slate-500 italic">
+                                RetinaFace + WFPN</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">90.8%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">88.2%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">74.0%</td>
+                            <td
+                                class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700 underline underline-offset-4">
+                                1.030G</td>
+                            <td class="py-4 px-4 border-b border-slate-200 dark:border-slate-700">426.738K</td>
+                        </tr>
+                        <tr
+                            class="bg-slate-50 dark:bg-slate-800/30 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800/60">
+                            <td
+                                class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700 font-medium text-slate-500 italic">
+                                RetinaFace + WFPN + SCM</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">91.0%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">88.6%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">74.7%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">1.304G</td>
+                            <td class="py-4 px-4 border-b border-slate-200 dark:border-slate-700">523.986K</td>
+                        </tr>
+                        <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/60">
+                            <td
+                                class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700 font-medium text-slate-500 italic">
+                                RetinaFace + WFPN + SCM + ECA-CBAM</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">91.4%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">89.2%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">75.1%</td>
+                            <td class="py-4 px-4 border-b border-r border-slate-200 dark:border-slate-700">1.427G</td>
+                            <td class="py-4 px-4 border-b border-slate-200 dark:border-slate-700">567.258K</td>
+                        </tr>
+                        <tr
+                            class="bg-blue-50/50 dark:bg-blue-900/20 transition-colors hover:bg-blue-100/50 dark:hover:bg-blue-900/40">
+                            <td
+                                class="py-4 px-4 border-r border-slate-200 dark:border-slate-700 font-bold text-navy dark:text-blue-400">
+                                RetinaFace + WFPN + SCM + ECA-CBAM<br>
+                                <span class="text-[10px] font-normal text-slate-500">(Deformable Conv, Ours)</span>
+                            </td>
+                            <td
+                                class="py-4 px-4 border-r border-slate-200 dark:border-slate-700 font-bold text-navy dark:text-blue-400 underline underline-offset-4">
+                                91.7%</td>
+                            <td
+                                class="py-4 px-4 border-r border-slate-200 dark:border-slate-700 font-bold text-navy dark:text-blue-400 underline underline-offset-4">
+                                89.8%</td>
+                            <td
+                                class="py-4 px-4 border-r border-slate-200 dark:border-slate-700 font-bold text-navy dark:text-blue-400 underline underline-offset-4">
+                                76.1%</td>
+                            <td
+                                class="py-4 px-4 border-r border-slate-200 dark:border-slate-700 font-bold text-navy dark:text-blue-400">
+                                1.124G</td>
+                            <td class="py-4 px-4 font-bold text-navy dark:text-blue-400">478.167K</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 탐지 시각화 비교 -->
+            <div>
+                <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-3">정성적 평가 — 실제 이미지 탐지 비교</p>
+                <div class="grid md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <img src="RetinaFace 프로젝트 이미지/fig6.png"
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700 aspect-video object-cover"
+                            alt="Baseline Detection">
+                        <p class="text-xs text-slate-400 mt-2 text-center">Baseline RetinaFace — 탐지 누락 존재</p>
                     </div>
-                    <div
-                        class="p-5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
-                        <div class="text-lg font-bold text-navy dark:text-blue-400 mb-1">Capstone 학과 1위</div>
-                        <div class="text-sm text-slate-500">캡스톤 디자인 경진대회 최우수 프로젝트 선정</div>
+                    <div>
+                        <img src="RetinaFace 프로젝트 이미지/fig7.png"
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700 aspect-video object-cover"
+                            alt="Ours Detection">
+                        <p class="text-xs text-slate-400 mt-2 text-center">Ours — 기존 모델이 놓친 얼굴도 탐지 성공</p>
                     </div>
-                    <img src="RetinaFace 프로젝트 이미지/results - 실험 결과.png"
-                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 mt-2"
-                        alt="Metrics Table">
-                    <p class="text-xs text-slate-400 text-center">WiderFace 벤치마크 실험 결과표</p>
+                </div>
+                <!-- 확대 비교 이미지 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <img src="RetinaFace 프로젝트 이미지/fig8.png"
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700"
+                            alt="Baseline Close-up">
+                        <p class="text-xs text-slate-400 mt-2 text-center">Baseline — 확대 비교 (소형 얼굴 탐지 실패)</p>
+                    </div>
+                    <div>
+                        <img src="RetinaFace 프로젝트 이미지/fig9.png"
+                            class="w-full rounded-xl border border-slate-200 dark:border-slate-700" alt="Ours Close-up">
+                        <p class="text-xs text-slate-400 mt-2 text-center">Ours — 확대 비교 (소형 얼굴도 탐지 성공)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLOPs 효율성 -->
+            <div class="mt-8 border border-slate-200 dark:border-slate-700 rounded-xl p-6">
+                <h3 class="font-bold text-navy dark:text-white mb-4">연산 효율성 분석</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-300">
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="cpu" class="w-4 h-4 flex-shrink-0 mt-0.5 text-navy dark:text-blue-400"></i>
+                        <div>
+                            <div class="font-medium text-slate-800 dark:text-white">FLOPs 증가: +0.09G</div>
+                            <div class="text-xs text-slate-400 mt-0.5">실 Edge Device 배포 시 미미한 수준의 증가폭</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="trending-up"
+                            class="w-4 h-4 flex-shrink-0 mt-0.5 text-navy dark:text-blue-400"></i>
+                        <div>
+                            <div class="font-medium text-slate-800 dark:text-white">AP / FLOPs 효율: 최대화</div>
+                            <div class="text-xs text-slate-400 mt-0.5">연산량 대비 성능 향상폭을 극대화하는 것이 핵심 목표</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i data-lucide="trophy" class="w-4 h-4 flex-shrink-0 mt-0.5 text-navy dark:text-blue-400"></i>
+                        <div>
+                            <div class="font-medium text-slate-800 dark:text-white">캡스톤 디자인 1등 · A+ 학점</div>
+                            <div class="text-xs text-slate-400 mt-0.5">수업 내 최우수 작품으로 선정</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -214,18 +618,26 @@
                 <span
                     class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">PyTorch</span>
                 <span
-                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">CBAM
-                    / ECA</span>
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">RetinaFace</span>
                 <span
-                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">FPN</span>
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">MobileNet-v1</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">WiderFace
+                    Dataset</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">FPN
+                    / WFPN</span>
+                <span
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">CBAM
+                    / ECA-CBAM</span>
                 <span
                     class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Deformable
-                    Conv</span>
+                    Convolution</span>
                 <span
-                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">MobileNet
-                    v1</span>
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Ablation
+                    Study</span>
                 <span
-                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">WiderFace</span>
+                    class="px-3 py-1.5 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Linux</span>
             </div>
         </section>
     </main>
