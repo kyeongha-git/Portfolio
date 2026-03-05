@@ -14,6 +14,10 @@
                 extend: {
                     colors: {
                         navy: '#003774',
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'Inter', 'Noto Sans KR', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -22,15 +26,29 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        /* 프리미엄 폰트 로드: Pretendard (국영문 통합), Plus Jakarta Sans (헤드라인용) */
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
             --primary-navy: #003774;
+            --font-main: 'Pretendard', 'Inter', 'Noto Sans KR', sans-serif;
+            --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            font-family: var(--font-main);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.02em;
         }
 
         .bg-navy {
@@ -245,9 +263,8 @@
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-4 border-navy">
                                 <h4 class="font-bold text-navy dark:text-blue-400 mb-1">Impact</h4>
-                                <p class="text-sm text-slate-600 dark:text-slate-400">평균 정확도 <strong>+4.69%</strong> 향상
-                                    (최고 93.40%),
-                                    ESWA 저널 투고, KSC 2024 학술대회 게재</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">분류 정확도 <strong>97.46%</strong> 달성
+                                    (기존 대비 <strong>+4.06%p</strong> 향상), KCI 학술대회 발표 및 학술지 투고 완료</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2">
@@ -295,7 +312,8 @@
                         </div>
                         <h3 class="text-3xl font-bold text-navy dark:text-white">화성시 산업단지 맞춤형 화재 대응 전략</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-lg">
-                            전국 최다 화재 발생 도시인 화성시의 실제 데이터를 기반으로 GIS 분석·네트워크 분석으로 화재 취약 지점과 대피소 공백 구역을 파악하여 맞춤형 전략을 제안했습니다.
+                            YOLO 기반 객체 검출과 ROI 크롭핑을 결합한 GAC(Grid Attention Crop) 프레임워크를 제안하여, 복잡한 배경의 농작물 이미지 분류 성능을
+                            <strong>97.46%</strong>까지 끌어올린 연구 프로젝트입니다.
                         </p>
 
                         <div class="space-y-4">
@@ -431,7 +449,8 @@
                         </div>
                         <h3 class="text-3xl font-bold text-navy dark:text-white">Activities & Experiences</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-lg">
-                            KT 디지털인재 장학생, 취업동아리 대표, 소자 부식 예측 연구, VLM 논문 스터디까지 — 기술 역량을 넘어선 다양한 협업·리더십·학습 경험을 담았습니다.
+                            KT 디지털 인재 장학금 수여, 학생회장 리더십 활동, 그리고 <strong>17편 이상의 VLM 논문 스터디</strong>를 통해 기술적 성장과 리더십을 동시에
+                            증명해왔습니다.
                         </p>
 
                         <div class="space-y-4">
