@@ -562,15 +562,15 @@
                                 class="text-6xl font-bold text-slate-100 dark:text-slate-800 select-none leading-none">03</span>
                             <div
                                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-bold uppercase tracking-wider">
-                                Model Optimization / Edge Device
+                                Face Detection / Model Optimization
                             </div>
                         </div>
                         <h3 class="text-3xl font-bold text-navy dark:text-white">RetinaFace Architecture Optimization
                         </h3>
                         <p class="text-slate-600 dark:text-slate-400 text-lg">
                             경량화 시 <strong class="text-navy dark:text-blue-400">성능이 급감</strong>하는 RetinaFace의 병목을 분석하고,
-                            <strong class="text-navy dark:text-blue-400">커스텀 모듈을 설계·이식</strong>하여 연산량 증가를 최소화한 채 탐지 성능을
-                            끌어올린 캡스톤 프로젝트입니다.
+                            <strong class="text-navy dark:text-blue-400">커스텀 모듈을 설계·이식</strong>하여 연산량을 절감하고, 탐지 성능을
+                            개선한 프로젝트입니다.
                         </p>
 
                         <!-- Role & Contribution 뱃지 -->
@@ -578,7 +578,7 @@
                             <div
                                 class="flex items-center gap-1.5 px-3 py-1.5 bg-navy/10 dark:bg-blue-950/60 text-navy dark:text-blue-300 text-xs font-semibold rounded-lg border border-navy/20 dark:border-blue-800/50">
                                 <i data-lucide="user-check" class="w-3.5 h-3.5 shrink-0"></i>
-                                <span><strong>Role</strong>: 방법론 설계 · 논문 구현 및 파이프라인 개발 · 실험 주도</span>
+                                <span><strong>Role</strong>: 커스텀 모듈 설계 · 모델 경량화 · 실험 주도</span>
                             </div>
                             <div
                                 class="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-semibold rounded-lg border border-blue-200 dark:border-blue-800/50">
@@ -606,7 +606,7 @@
                                 </span>
                                 <p class="text-sm text-slate-600 dark:text-slate-400">
                                     <strong class="text-slate-800 dark:text-slate-200">Solution.</strong>
-                                    정보량을 최소화하며, 탐지 성능을 극대화할 수 있는 4개 모듈 직접 설계 및 이식
+                                    탐지 성능을 효율적이고, 극대화할 수 있는 모듈 4개 커스터마이징 및 빌드
                                 </p>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-4 border-navy">
@@ -614,7 +614,8 @@
                                     <i data-lucide="trophy" class="w-3.5 h-3.5"></i> Key Results
                                 </h4>
                                 <p class="text-sm text-slate-600 dark:text-slate-400">WIDER FACE Hard Case 기준
-                                    <strong>+2.7 AP 향상</strong> (Easy +1.0, Medium +1.7) · <strong>학과 캡스톤 1등</strong>
+                                    <strong>+3.07 AP 향상</strong> (Easy +1.2, Medium +1.6) · <strong>Flops 2.6%
+                                        절감</strong>
                                 </p>
                             </div>
                         </div>
@@ -647,7 +648,7 @@
                         <img src="assets/RetinaFace/head.png"
                             class="w-full h-full min-h-[140px] object-cover rounded-2xl shadow-md border border-slate-100 dark:border-slate-800 hover-lift zoom-trigger"
                             alt="Detection Result" onclick="viewImage(this.src)">
-                        <img src="assets/RetinaFace/head2.png"
+                        <img src="assets/RetinaFace/ablation_study.png"
                             class="w-full h-full min-h-[140px] object-cover rounded-2xl shadow-md border border-slate-100 dark:border-slate-800 hover-lift zoom-trigger"
                             alt="Metrics" onclick="viewImage(this.src)">
                     </div>
